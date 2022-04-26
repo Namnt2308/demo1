@@ -34,9 +34,11 @@
             </div>
             <div class="login__decentralization">
                 <select name="Category" class="decentralization" id="Category">
-                    <option value="Comic">Comic</option>
-                    <option value="IT Book">IT Book</option>
-                    <option value="Action">Action Book</option>
+                    {{#each categoryname}}
+                            <tr>
+                            <option value="{{name}}">{{name}}</option>
+                            </tr>
+                            {{/each}}
                 </select>
             </div>
             <button type="submit" value="updatebook" class="btn"> <a href="/"></a> Update </button>

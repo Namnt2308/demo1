@@ -207,13 +207,15 @@ input[type="submit"] {
   padding-left: 7px;
   text-align: center;
 }
-input[type="text"] {
+/* input[type="text"] {
   padding: 18px 259px 6px 105px;
-}
+  
+} */
 th {
   padding: 10px 10px;
   background-color: skyblue;
-}
+  
+} */
 td {
   padding: 27px;
   background-color: whitesmoke;

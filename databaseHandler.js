@@ -24,6 +24,13 @@ async function insertObject(collectionName, objectToInsert) {
     newObject.insertedId.toHexString()
   );
 }
+async function getAllFeedback() {
+  const result = await getAll("Feedback");
+  result.forEach(
+    (e) => (e.timeString = new Date(e.time).toLocaleString("vi-VN"))
+  );
+  return result;
+}
 
 async function searchObjectbyName(collectionName, name) {
   const dbo = await getdbo();
@@ -161,13 +168,7 @@ async function saveDocument(collectionName, id, newValue) {
   await dbo.collection(collectionName).save({ _id: ObjectId(id), newValue });
 }
 
-async function getAllFeedback() {
-  const result = await getAll("Feedback");
-  result.forEach(
-    (e) => (e.timeString = new Date(e.time).toLocaleString("vi-VN"))
-  );
-  return result;
-}
+
 
 async function searchOderByUser(collectionName, user) {
   const dbo = await getdbo();
@@ -194,8 +195,25 @@ async function searchHotBooks() {
   const result = await dbo.collection("Book").find({ hot: "true" }).toArray();
   return result;
 }
-
+async function SortdownPrice(collectionName) {
+  const dbo = await getdbo()
+  const results = await dbo.collection(collectionName).find({}).sort({price:-1}).toArray()   
+  return results
+}
+async function SortupPrice(collectionName) {
+  const dbo = await getdbo()
+  const results = await dbo.collection(collectionName).find({}).sort({price:1}).toArray()   
+  return results
+}
+async function dosearch(condition,collectionName){
+  const dbo = await getdbo();
+  const searchCondition = new RegExp(condition,'i')
+  const results = await dbo.collection(collectionName).find({name:searchCondition}).toArray();
+  return results;
+}
 module.exports = {
+  dosearch,
+  SortupPrice,
   getDocumentByName,
   getUser,
   saveDocument,
@@ -214,7 +232,6 @@ module.exports = {
   searchObjectbyCategory,
   updateCart,
   getCart,
-  getAllFeedback,
   checkUserRole,
   checkUser,
   searchObjectbyCategory,
@@ -224,4 +241,5 @@ module.exports = {
   searchOderByUser,
   searchHotBooks,
   deleteDocument,
+  SortdownPrice
 };

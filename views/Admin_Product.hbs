@@ -50,6 +50,8 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">Customers</a>
                     </li>
+                    <li class="nav-item text-light"> <a class="nav-link" href="/admin/sapxeptang">UP</a></li>
+                    <li class="nav-item text-light"><a class="nav-link" href="/admin/sapxepgiam">Down</a></li>
                     <li class="nav-item">
                         <a href="/admin/addbook" class="nav-link">Add Book</a>
                     </li>
@@ -70,10 +72,9 @@
                 <div class="inner-section">
                     <h2 class="page-title">Manage book</h2>
                     <a href="/admin/addbook" class="btn btn-primary">Add Book</a>
-                        <form action="/search?=" class="search-form" method="get">
-                <input type="search" name="searchInput" placeholder="search here..." id="searchInput">
-                <a href="/search"><button class="btn-search"><i class="fas fa-search"></i></button></i></a>
-                    </form>
+                        <form method="POST" action="/admin/search"class="mt-2 col-md-10 px-0">
+                            <input type="text" class="form-control" list="title_product"  name="txtName"placeholder="Enter name product">
+                        </form>
                         </div>
                                 <div class="table-responsive">
                                     <table class="table">
