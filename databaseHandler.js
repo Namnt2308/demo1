@@ -41,14 +41,6 @@ async function searchObjectbyName(collectionName, name) {
   return result;
 }
 
-async function searchObjectbyID(collectionName, id) {
-  const dbo = await getdbo();
-  const result = await dbo
-    .collection(collectionName)
-    .find({ id: { $regex: id, $options: "i" } })
-    .toArray();
-  return result;
-}
 
 async function searchObjectbyPrice(collectionName, price) {
   const dbo = await getdbo();
@@ -212,6 +204,7 @@ async function dosearch(condition,collectionName){
   return results;
 }
 module.exports = {
+  getAllFeedback,
   dosearch,
   SortupPrice,
   getDocumentByName,
@@ -226,7 +219,6 @@ module.exports = {
   updateDocument,
   findOne,
   deleteOne,
-  searchObjectbyID,
   checkUserRole,
   checkUser,
   searchObjectbyCategory,
@@ -235,8 +227,6 @@ module.exports = {
   checkUserRole,
   checkUser,
   searchObjectbyCategory,
-  updateCart,
-  getCart,
   checkUserLogin,
   searchOderByUser,
   searchHotBooks,
