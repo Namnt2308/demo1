@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const dbHandler = require("./databaseHandler");
 const session = require("express-session");
-const bcrypt = require("bcrypt");
 const morgan = require('morgan');
 app.use(morgan('combined'));
 const { create } = require('express-handlebars'); 
@@ -56,7 +55,7 @@ app.post("/login", async (req, res) => {
   if (user == -1) {
     res.render("login", { errorMsg: "Not found UserName!!" });
   } else {
-    const validPass = await bcrypt.compare(pass, user.password);
+    // const validPass = await bcrypt.compare(pass, user.password);
     if (validPass) {
       const role = await dbHandler.checkUserRole(name);
       if (role == -1) {
@@ -98,10 +97,10 @@ app.post("/register", async (req, res) => {
   const rePass = req.body.txtRePass;
   const role = req.body.Role;
   const fullName = req.body.txtName;
-  const hashPass = await bcrypt.hash(pass, 10);
+  const hashPass = await hash(pass, 10);
   const existedUser = await dbHandler.checkUserLogin(userName);
   if (existedUser == -1) {
-    const validPass = await bcrypt.compare(rePass, hashPass);
+    // const validPass = await bcrypt.compare(rePass, hashPass);
     if (validPass) {
       const newUser = {
         userName: userName,
