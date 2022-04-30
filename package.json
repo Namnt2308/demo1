@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.2",
     "express-handlebars": "^6.0.3",
     "express-session": "^1.17.2",
@@ -12,7 +14,7 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -21,6 +23,9 @@
     "type": "git",
     "url": "git+https://github.com/Namnt2308/demo1.git"
   },
-  "bugs": {},
+  "bugs": {
+
+  },
+
   "description": ""
 }
