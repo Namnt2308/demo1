@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 const dbHandler = require("./databaseHandler");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
