@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const dbHandler = require("./databaseHandler");
-const session = require("express-session");
+var session = require('cookie-session');
 const bcrypt = require("bcrypt");
 const morgan = require('morgan');
 app.use(morgan('combined'));
