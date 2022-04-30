@@ -1,8 +1,7 @@
 const express = require("express");
 const app = express();
-const path = require("path");
 const dbHandler = require("./databaseHandler");
-var session = require('cookie-session');
+const session = require("express-session");
 const bcrypt = require("bcrypt");
 const morgan = require('morgan');
 app.use(morgan('combined'));
